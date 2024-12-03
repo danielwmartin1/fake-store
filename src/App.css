@@ -36,3 +36,36 @@
     transform: rotate(360deg);
   }
 }
+
+img {
+  height: 100px;
+  width: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin: 20px;
+  justify-content: center;
+
+} 
+
+.product {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product img {
+  width: 30%;
+  height: auto;
+  margin: 0 auto;
+}
