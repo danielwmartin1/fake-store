@@ -18,11 +18,6 @@ body {
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -39,38 +34,28 @@ body {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 img {
-  object-fit: fit;
+  object-fit: cover;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 250px;
-  height: 275px;
+  width: auto;
+  height: 300px;
   margin: 0 auto;
 }
 
 .product-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
-  margin: 20px;
+  grid-gap: 1rem;
+  margin: 1rem;
   justify-content: center;
-
 } 
 
 .product {
   border: 2px solid rgba(0, 0, 0, 0.525);
-  padding: 20px;
+  padding: 1rem;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -82,7 +67,7 @@ button {
   background-color: #282c34;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 0.5rem 1rem;
   border-radius: 5px;
   cursor: pointer;
 }
