@@ -23,6 +23,8 @@ h2 {
   color: aqua;
   text-decoration: underline;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: center;
+  margin: 1rem 0;
 }
 
 .App-header {
@@ -34,6 +36,8 @@ h2 {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  text-align: center;
+  padding: 1rem;
 }
 
 header {
@@ -47,16 +51,28 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 }
 
 .App-link {
   color: #61dafb;
 }
 
+.price,.original, .discount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 1rem auto;
+  text-align: center;
+  padding: 0.25rem;
+  width: auto;
+}
+
 .price {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: bold;
-  color: #f1fb61;
+  color: rgb(0, 255, 0);
   animation: flash-green 1s infinite alternate;
 }
 
@@ -67,19 +83,24 @@ header {
   100% {
     transform: scale(1.2);
     color: rgb(0, 255, 0);
+    border: 2px solid rgb(0, 255, 0);
+    width: 30%;
+    border-radius: 5px;
   }
 }
 
+.addCart {
+  color: aqua;
+  animation: flash-aqua 1s infinite alternate;
+  font-size: 1.25rem;
+}
+
 .original {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 1rem;
   font-style: italic;
   color: red;
   text-decoration: line-through;
   animation: flash-red 1s infinite alternate;
+  font-size: 1.25rem;
 }
 
 @keyframes flash-red {
@@ -93,14 +114,10 @@ header {
 }
 
 .discount {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 1rem;
   font-style: italic;
   color: yellow;
   animation: flash-yellow 1s infinite alternate;
+  font-size: 1.5rem;
 }
 
 @keyframes flash-yellow {
@@ -130,7 +147,7 @@ img {
   grid-gap: 1rem;
   margin: 1rem;
   justify-content: center;
-} 
+}
 
 .product {
   border: 2px solid rgba(0, 0, 0, 0.525);
@@ -139,8 +156,8 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  text-align: center;
 }
-
 
 button {
   background-color: #282c34;
@@ -149,6 +166,8 @@ button {
   padding: 0.5rem 1rem;
   border-radius: 5px;
   cursor: pointer;
+  text-align: center;
+  margin: 0.5rem auto;
 }
 
 button:hover {
@@ -166,6 +185,8 @@ button:active {
 p {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 1.5rem;
+  text-align: center;
+  margin: 1rem 0;
 }
 
 footer {
@@ -180,4 +201,81 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+
+  .price, .original, .discount {
+    width: 80%;
+  }
+
+  img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .price, .addCart, .original, .discount {
+    font-size: 1.25rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  p {
+    font-size: 1.25rem;
+  }
+
+  button {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .price, .addCart, .original, .discount {
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  button {
+    padding: 0.25rem;
+  }
+
+  img {
+    height: 150px;
+  }
+}
+
+@media (max-width: 352px) {
+  .price, .addCart, .original, .discount {
+    font-size: 0.75rem;
+  }
+
+  h2 {
+    font-size: 0.75rem;
+  }
+
+  p {
+    font-size: 0.75rem;
+  }
+
+  button {
+    padding: 0.25rem;
+  }
+
+  img {
+    height: 100px;
+  }
 }
