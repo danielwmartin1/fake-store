@@ -18,6 +18,12 @@ body {
   pointer-events: none;
 }
 
+h2 {
+  font-size: 1.5rem;
+  color: aqua;
+  text-decoration: underline;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 
 .App-header {
   background-color: #282c34;
@@ -28,6 +34,19 @@ body {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+header {
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+  border-bottom: 5px ridge aqua;
+  width: 100%;
+  position: relative;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-link {
@@ -147,4 +166,18 @@ button:active {
 p {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 1.5rem;
+}
+
+footer {
+  background-color: #0055ff;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  border-top: 5px ridge aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
