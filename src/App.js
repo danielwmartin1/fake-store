@@ -11,6 +11,8 @@ const products = [
   { id: 4, name: 'Camera', originally: 699, price: 499, image: 'https://i5.walmartimages.com/seo/Canon-EOS-R100-Mirrorless-Camera-24-1-MP-APS-C-4K-29-97-fps-2-5x-optical-zoom-RF-S-18-45mm-F4-5-6-3-IS-STM-lens-Wi-Fi-Bluetooth-black_401378df-14d3-43ee-90ab-e88fe87d2369.8d0f39a684e202d05c2fc0c9d1abd73a.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF' },
 ];
 
+const calculateDiscount = (originally, price) => originally - price;
+
 function App() {
   const [cart, setCart] = useState([]);
 
@@ -24,7 +26,7 @@ function App() {
 
   return (
     <div className="App">
-    <Header />
+      <Header />
       <main>
         <section className="products">
           <h2>Products</h2>
@@ -32,9 +34,10 @@ function App() {
             {products.map((product) => (
               <div key={product.id} className="product">
                 <img className="image" src={product.image} alt={product.name} />
-                <h3>{product.name}</h3>
-                <p style={{fontStyle: 'italic'}}>Originally: ${product.originally}</p>
-                <p>${product.price}</p>
+                <h3 className="product-name">{product.name}</h3>
+                <p className="original">Originally: ${product.originally}</p>
+                <p className="discount">Discount: ${calculateDiscount(product.originally, product.price)}</p>
+                <p className="price">${product.price}</p>
                 <button onClick={() => addToCart(product)}>Add to Cart</button>
               </div>
             ))}

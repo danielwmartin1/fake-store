@@ -34,6 +34,66 @@ body {
   color: #61dafb;
 }
 
+.price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f1fb61;
+  animation: flash-green 1s infinite alternate;
+}
+
+@keyframes flash-green {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+    color: rgb(0, 255, 0);
+  }
+}
+
+.original {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 1rem;
+  font-style: italic;
+  color: red;
+  text-decoration: line-through;
+  animation: flash-red 1s infinite alternate;
+}
+
+@keyframes flash-red {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+    color: red;
+  }
+}
+
+.discount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 1rem;
+  font-style: italic;
+  color: yellow;
+  animation: flash-yellow 1s infinite alternate;
+}
+
+@keyframes flash-yellow {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+    color: yellow;
+  }
+}
+
 img {
   object-fit: cover;
   text-align: center;
@@ -87,7 +147,4 @@ button:active {
 p {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 1.5rem;
-  line-height: 1.5;
-  margin: 1;
-  padding: 1rem;
 }
