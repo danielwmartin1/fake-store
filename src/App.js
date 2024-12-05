@@ -15,7 +15,7 @@ const calculateDiscount = (originally, price) => (originally - price).toFixed(2)
 function App() {
   const [cart, setCart] = useState([]);
   
-  const setItemCount = (id, quantity) => {
+  const setItemCount = (id) => {
     const newQuantity = prompt("Enter new quantity: ");
     if (newQuantity !== null) {
       setCart((prevCart) => {
