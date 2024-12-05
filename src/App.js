@@ -52,6 +52,8 @@ function App() {
               <div key={product.id} className="product">
                 <img className="image" src={product.image} alt={product.name} />
                 <h3>{product.name}</h3>
+                <p className="original">Originally: ${product.originally}</p>
+                <p className="discount">Discount: ${calculateDiscount(product.originally, product.price)}</p>
                 <p>Price: ${product.price}</p>
                 <button onClick={() => addToCart(product)}>Add to Cart</button>
               </div>

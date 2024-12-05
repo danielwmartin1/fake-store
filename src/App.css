@@ -58,7 +58,7 @@ header {
   color: #61dafb;
 }
 
-.price,.original, .discount {
+.price, .original, .discount {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,12 +78,12 @@ header {
 
 @keyframes flash-green {
   0% {
-    transform: scale(1);
-    opacity: 1;
+    scale: 1;
+    filter: brightness(1);
   }
   100% {
-    transform: scale(1.2);
-    opacity: 0.8;
+    scale: 1.2;
+    filter: brightness(0.8);
   }
 }
 
@@ -103,12 +103,12 @@ header {
 
 @keyframes flash-red {
   0% {
-    transform: scale(1);
-    opacity: 1;
+    scale: 1;
+    filter: brightness(1);
   }
   100% {
-    transform: scale(1.2);
-    opacity: 0.8;
+    scale: 1.2;
+    filter: brightness(0.8);
   }
 }
 
@@ -121,14 +121,15 @@ header {
 
 @keyframes flash-yellow {
   0% {
-    transform: scale(1);
-    opacity: 1;
+    scale: 1;
+    filter: brightness(1);
   }
   100% {
-    transform: scale(1.2);
-    opacity: 0.8;
+    scale: 1.2;
+    filter: brightness(0.8);
   }
 }
+
 img {
   object-fit: cover;
   text-align: center;
@@ -192,13 +193,13 @@ button {
 button:hover {
   background-color: #61dafb;
   color: black;
-  transform: scale(1.02);
+  scale: 1.02;
 }
 
 button:active {
   background-color: #115a6e;
   color: aqua;
-  transform: scale(1);
+  scale: 1;
 }
 
 p {
