@@ -39,11 +39,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background-color);
   color: var(--text-color);
-  overflow-x: hidden;
-}
-
-html {
-  overflow-x: hidden;
 }
 
 .App {
@@ -61,6 +56,7 @@ html {
   font-family: var(--font-family-alt);
   text-align: center;
   margin: var(--margin) 0;
+  color: aqua;
 }
 
 .productsHeader {
@@ -69,6 +65,7 @@ html {
   text-align: center;
   margin: var(--margin) 0;
   display: block;
+  color: aqua;
 }
 
 .headerContainer {
@@ -123,19 +120,17 @@ header {
 
 .price {
   font-size: 1.75rem;
-  will-change: transform;
-  transform: scale(1.2);
-  filter: brightness(0.8);
+  font-weight: bold;
+  color: var(--price-color);
+  animation: flash-green 1s infinite alternate;
 }
 
 @keyframes flash-green {
   0% {
-    will-change: transform;
     transform: scale(1);
     filter: brightness(1);
   }
   100% {
-    will-change: transform;
     transform: scale(1.2);
     filter: brightness(0.8);
   }
@@ -148,31 +143,37 @@ header {
 }
 
 .original {
-  will-change: transform;
-  transform: scale(1.2);
-  filter: brightness(0.8);
+  font-style: italic;
+  color: var(--original-color);
+  text-decoration: line-through;
+  animation: flash-red 1s infinite alternate;
+  font-size: var(--font-size-small);
 }
 
 @keyframes flash-red {
   0% {
-    will-change: transform;
     transform: scale(1);
     filter: brightness(1);
   }
   100% {
-    will-change: transform;
     transform: scale(1.2);
     filter: brightness(0.8);
   }
 }
+
+.discount {
+  font-style: italic;
+  color: var(--discount-color);
+  animation: flash-yellow 1s infinite alternate;
+  font-size: 1.5rem;
+}
+
 @keyframes flash-yellow {
   0% {
-    will-change: transform;
     transform: scale(1);
     filter: brightness(1);
   }
   100% {
-    will-change: transform;
     transform: scale(1.2);
     filter: brightness(0.8);
   }
@@ -187,7 +188,6 @@ img {
   width: auto;
   height: 300px;
   margin: 0 auto;
-  border-radius: 5px;
 }
 
 .cart {
@@ -206,6 +206,7 @@ img {
   padding: 0.5rem;
   border-bottom: 1px solid #ccc;
   gap: 1rem;
+  text-align: center;
 }
 
 .pr {
