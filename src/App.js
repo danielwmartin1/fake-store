@@ -4,10 +4,10 @@ import Footer from './components/Footer.js';
 
 // Fake product data
 const products = [
-  { id: 1, name: 'Laptop', originally: 1499.99, price: 999.99, image: 'https://m.media-amazon.com/images/I/61XtQfb-sRL.__AC_SX300_SY300_QL70_FMwebp_.jpg' },
-  { id: 2, name: 'Phone', originally: 899.99, price: 699.99, image: 'https://t-mobile.scene7.com/is/image/Tmusprod/Apple-iPhone-15-Plus-Pink-frontimage' },
-  { id: 3, name: 'Headphones', originally: 349.99, price: 199.99, image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQTQ3?wid=1144&hei=1144&fmt=jpeg&qlt=95&.v=1687660671363' },
-  { id: 4, name: 'Camera', originally: 699.99, price: 499.99, image: 'https://i5.walmartimages.com/seo/Canon-EOS-R100-Mirrorless-Camera-24-1-MP-APS-C-4K-29-97-fps-2-5x-optical-zoom-RF-S-18-45mm-F4-5-6-3-IS-STM-lens-Wi-Fi-Bluetooth-black_401378df-14d3-43ee-90ab-e88fe87d2369.8d0f39a684e202d05c2fc0c9d1abd73a.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF' },
+  { id: 1, name: 'Laptop', originally: 1499.99, price: 999.99, image: 'https://m.media-amazon.com/images/I/61XtQfb-sRL.__AC_SX300_SY300_QL70_FMwebp_.jpg', link: 'https://www.microsoft.com/en-us/store/configure/surface-laptop-7th-edition/8tq2hq5xxkj9/kqfl?OCID=AIDcmm6mu07qw1_seo_omc_goo&source=googleshopping' },
+  { id: 2, name: 'Phone', originally: 899.99, price: 699.99, image: 'https://t-mobile.scene7.com/is/image/Tmusprod/Apple-iPhone-15-Plus-Pink-frontimage', link: 'https://www.apple.com/shop/buy-iphone/iphone-15-pro' },
+  { id: 3, name: 'Headphones', originally: 349.99, price: 249.99, image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQTQ3?wid=1144&hei=1144&fmt=jpeg&qlt=95&.v=1687660671363', link: 'https://www.beatsbydre.com/headphones/studio-pro-wireless/MQTP3/black' },
+  { id: 4, name: 'Camera', originally: 4499.99, price: 3799.99, image: 'https://i5.walmartimages.com/seo/Canon-EOS-R100-Mirrorless-Camera-24-1-MP-APS-C-4K-29-97-fps-2-5x-optical-zoom-RF-S-18-45mm-F4-5-6-3-IS-STM-lens-Wi-Fi-Bluetooth-black_401378df-14d3-43ee-90ab-e88fe87d2369.8d0f39a684e202d05c2fc0c9d1abd73a.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF', link: 'https://www.usa.canon.com/shop/p/eos-r5-rf24-105mm-f4-l-is-usm-kit?color=Black&type=New' },
 ];
 
 const calculateDiscount = (originally, price) => (originally - price).toFixed(2);
@@ -63,11 +63,12 @@ function App() {
           <div className="product-list">
             {products.map((product) => (
               <div key={product.id} className="product">
-                <img className="image" src={product.image} alt={product.name} />
-                <h2 className="productName">{product.name}</h2>
-                <p className="original">Originally: ${product.originally.toFixed(2)}</p>
-                <p className="discount">Discount: ${calculateDiscount(product.originally, product.price)}</p>
-                <p className="price">Price: ${product.price.toFixed(2)}</p>
+                <a href={product.link} target="_blank" rel="noopener noreferrer">
+                  <img className="image" src={product.image} alt={product.name} />
+                  <p className="original">Originally: ${product.originally.toFixed(2)}</p>
+                  <p className="discount">Discount: ${calculateDiscount(product.originally, product.price)}</p>
+                  <p className="price">Price: ${product.price.toFixed(2)}</p>
+                </a>
                 <button onClick={() => addToCart(product)}>Add to Cart</button>
               </div>
             ))}
