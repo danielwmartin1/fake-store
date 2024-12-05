@@ -77,6 +77,14 @@ body {
   width: 100%;
 }
 
+.itemName, .itemQuantity, .itemPrice {
+  font-size: var(--font-size-small);
+  font-family: var(--font-family-alt);
+  text-align: left;
+  margin: var(--margin) 0;
+  display: block;
+}
+
 .App-header {
   background-color: var(--header-background-color);
   min-height: 100vh;
@@ -127,11 +135,11 @@ header {
 
 @keyframes flash-green {
   0% {
-    transform: scale(1);
+    scale: 1;
     filter: brightness(1);
   }
   100% {
-    transform: scale(1.2);
+    scale: 1.2;
     filter: brightness(0.8);
   }
 }
@@ -152,11 +160,11 @@ header {
 
 @keyframes flash-red {
   0% {
-    transform: scale(1);
+    scale: 1;
     filter: brightness(1);
   }
   100% {
-    transform: scale(1.2);
+    scale: 1.2;
     filter: brightness(0.8);
   }
 }
@@ -170,11 +178,11 @@ header {
 
 @keyframes flash-yellow {
   0% {
-    transform: scale(1);
+    scale: 1;
     filter: brightness(1);
   }
   100% {
-    transform: scale(1.2);
+    scale: 1.2;
     filter: brightness(0.8);
   }
 }
@@ -302,6 +310,17 @@ footer > p {
   img {
     height: 200px;
   }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-item > * {
+    flex: none;
+    width: 100%;
+    text-align: left;
+  }
 }
 
 @media (max-width: 768px) {
@@ -320,10 +339,21 @@ footer > p {
   button {
     padding: 0.5rem;
   }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-item > * {
+    flex: none;
+    width: 100%;
+    text-align: left;
+  }
 }
 
 @media (max-width: 480px) {
-  .price, .addCart, .original, .discount {
+  .price, .addCart, .original, .discount, .cart-item {
     font-size: var(--font-size-smaller);
   }
 
@@ -341,6 +371,17 @@ footer > p {
 
   img {
     height: 150px;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-item > * {
+    flex: none;
+    width: 100%;
+    text-align: left;
   }
 }
 
@@ -363,5 +404,16 @@ footer > p {
 
   img {
     height: 100px;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-item > * {
+    flex: none;
+    width: 100%;
+    text-align: left;
   }
 }
