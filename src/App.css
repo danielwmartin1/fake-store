@@ -18,10 +18,8 @@ body {
   pointer-events: none;
 }
 
-h2 {
+.cartHeading {
   font-size: 1.5rem;
-  color: aqua;
-  text-decoration: underline;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   text-align: center;
   margin: 1rem 0;
@@ -78,11 +76,11 @@ header {
 
 @keyframes flash-green {
   0% {
-    scale: 1;
+    transform: scale(1);
     filter: brightness(1);
   }
   100% {
-    scale: 1.2;
+    transform: scale(1.2);
     filter: brightness(0.8);
   }
 }

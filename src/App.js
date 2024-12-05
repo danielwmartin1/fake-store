@@ -53,7 +53,7 @@ function App() {
             {products.map((product) => (
               <div key={product.id} className="product">
                 <img className="image" src={product.image} alt={product.name} />
-                <h3 className="productName">{product.name}</h3>
+                <h2 className="productName">{product.name}</h2>
                 <p className="original">Originally: ${product.originally}</p>
                 <p className="discount">Discount: ${calculateDiscount(product.originally, product.price)}</p>
                 <p className="price">Price: ${product.price}</p>
@@ -63,7 +63,7 @@ function App() {
           </div>
         </section>
         <section className="cart">
-          <h2>Cart</h2>
+          <h2 className="cartHeading">Cart</h2>
           <div className="cart-list">
             {cart.map((item) => (
             <div key={item.product.id} className="cart-item">
