@@ -196,6 +196,8 @@ img {
   width: auto;
   height: 300px;
   margin: 0 auto;
+  border-radius: 5px;
+  border: 2px solid var(--footer-background-color);
 }
 
 .cart {
@@ -247,7 +249,7 @@ img {
   text-align: center;
 }
 
-button {
+button, .cart-item button {
   background-color: var(--button-background-color);
   color: var(--button-color);
   border: none;
@@ -256,6 +258,11 @@ button {
   cursor: pointer;
   text-align: center;
   margin: 0.5rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
 button:hover {
