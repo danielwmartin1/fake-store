@@ -87,11 +87,13 @@ function App() {
             </div>
             ))}
           </div>
-          <h3>Total Items: {getCartTotal()}</h3>
-          <h3>Subtotal: ${cart.reduce((total, item) => total + (item.product.price * item.quantity), 0).toFixed(2)}</h3>
-          <h3>Tax: ${(cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) * 0.07).toFixed(2)}</h3>
-          {cart.length > 0 && <h3>Shipping: $5.00</h3>}
-          <h3>Total: ${(cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) * 1.07 + (cart.length > 0 ? 5 : 0)).toFixed(2)}</h3>
+          <section>
+            <h3>Total Items: {getCartTotal()}</h3>
+            <h3>Subtotal: ${cart.reduce((total, item) => total + (item.product.price * item.quantity), 0).toFixed(2)}</h3>
+            <h3>Tax: ${(cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) * 0.07).toFixed(2)}</h3>
+            {cart.length > 0 && <h3>Shipping: $5.00</h3>}
+            <h3>Total: ${(cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) * 1.07 + (cart.length > 0 ? 5 : 0)).toFixed(2)}</h3>
+          </section>
         </section>
       </main>
       <Footer />
