@@ -48,11 +48,11 @@ function App() {
           {cart.length === 0 ? (
             <p>Your cart is empty</p>
           ) : (
-            <ul>
+            <ul className="cartList">
               {cart.map((item) => (
-                <li key={item.id}>
+                <li key={item.id} className="cartItem">
                   {item.name} - ${item.price}
-                  <button onClick={() => removeFromCart(item.id)}>Remove</button>
+                  <button className="removeCart" onClick={() => removeFromCart(item.id)}>Remove</button>
                 </li>
               ))}
             </ul>
