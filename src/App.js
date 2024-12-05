@@ -52,7 +52,7 @@ function App() {
               {cart.map((item) => (
                 <li key={item.id} className="cartItem">
                   {item.name} - ${item.price}
-                  <button className="removeCart" onClick={() => removeFromCart(item.id)}>Remove</button>
+                  <button className="removeCart" onClick={(e) => e.target.closest('li').remove()}>Remove</button>
                 </li>
               ))}
             </ul>
