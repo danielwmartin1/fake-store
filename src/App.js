@@ -63,11 +63,11 @@ function App() {
           <div className="product-list">
             {products.map((product) => (
               <div key={product.id} className="product">
-                <a href={product.link} target="_blank" rel="noopener noreferrer">
+                <a className="product-link" href={product.link} target="_blank" rel="noopener noreferrer">
                   <img className="image" src={product.image} alt={product.name} />
-                  <p className="original">Originally: ${product.originally.toFixed(2)}</p>
-                  <p className="discount">Discount: ${calculateDiscount(product.originally, product.price)}</p>
-                  <p className="price">Price: ${product.price.toFixed(2)}</p>
+                  <p className="link original">Originally: ${product.originally.toFixed(2)}</p>
+                  <p className="link discount">Discount: ${calculateDiscount(product.originally, product.price)}</p>
+                  <p className="link price">Price: ${product.price.toFixed(2)}</p>
                 </a>
                 <button onClick={() => addToCart(product)}>Add to Cart</button>
               </div>
@@ -90,8 +90,8 @@ function App() {
           <h3>Total Items: {getCartTotal()}</h3>
           <h3>Subtotal: ${cart.reduce((total, item) => total + (item.product.price * item.quantity), 0).toFixed(2)}</h3>
           <h3>Tax: ${(cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) * 0.07).toFixed(2)}</h3>
-          <h3>Shipping: $5.00</h3>
-          <h3>Total: ${(cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) * 1.07).toFixed(2)}</h3>
+          {cart.length > 0 && <h3>Shipping: $5.00</h3>}
+          <h3>Total: ${(cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) * 1.07 + (cart.length > 0 ? 5 : 0)).toFixed(2)}</h3>
         </section>
       </main>
       <Footer />
