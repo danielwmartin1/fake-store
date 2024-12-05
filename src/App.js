@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './App.css';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 
@@ -17,11 +16,29 @@ function App() {
   const [cart, setCart] = useState([]);
 
   const addToCart = (product) => {
-    setCart((prevCart) => [...prevCart, product]);
+    setCart((prevCart) => {
+      const existingProduct = prevCart.find((item) => item.product.id === product.id);
+      if (existingProduct) {
+        return prevCart.map((item) =>
+          item.product.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
+      } else {
+        return [...prevCart, { product, quantity: 1 }];
+      }
+    });
   };
 
   const removeFromCart = (id) => {
-    setCart((prevCart) => prevCart.filter((product) => product.id !== id));
+    setCart((prevCart) => {
+      const existingProduct = prevCart.find((item) => item.product.id === id);
+      if (existingProduct.quantity === 1) {
+        return prevCart.filter((item) => item.product.id !== id);
+      } else {
+        return prevCart.map((item) =>
+          item.product.id === id ? { ...item, quantity: item.quantity - 1 } : item
+        );
+      }
+    });
   };
 
   return (
@@ -34,29 +51,24 @@ function App() {
             {products.map((product) => (
               <div key={product.id} className="product">
                 <img className="image" src={product.image} alt={product.name} />
-                <h3 className="product-name">{product.name}</h3>
-                <p className="original">Originally: ${product.originally}</p>
-                <p className="discount">Discount: ${calculateDiscount(product.originally, product.price)}</p>
-                <p className="price">${product.price}</p>
-                <button className="addCart" onClick={() => addToCart(product)}>Add to Cart</button>
+                <h3>{product.name}</h3>
+                <p>Price: ${product.price}</p>
+                <button onClick={() => addToCart(product)}>Add to Cart</button>
               </div>
             ))}
           </div>
         </section>
         <section className="cart">
-          <h2>Shopping Cart</h2>
-          {cart.length === 0 ? (
-            <p>Your cart is empty</p>
-          ) : (
-            <ul className="cartList">
-              {cart.map((item) => (
-                <li key={item.id} className="cartItem">
-                  {item.name} - ${item.price}
-                  <button className="removeCart" onClick={(e) => e.target.closest('li').remove()}>Remove</button>
-                </li>
-              ))}
-            </ul>
-          )}
+          <h2>Cart</h2>
+          <div className="cart-list">
+            {cart.map((item) => (
+              <div key={item.product.id} className="cart-item">
+                <h3>{item.product.name}</h3>
+                <h4>Quantity: {item.quantity}</h4>
+                <button onClick={() => removeFromCart(item.product.id)}>Remove</button>
+              </div>
+            ))}
+          </div>
         </section>
       </main>
       <Footer />
