@@ -31,7 +31,6 @@
   --font-size-xx-smallest: 0.5rem;
 }
 
-
 body {
   margin: 0;
   font-family: var(--font-family);
@@ -120,14 +119,13 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: var(--font-size-large);
   padding: 1rem;
 }
 
 header h1 {
   margin: 0;
   padding: 0;
-  font-size: var(--font-size-x-large);
+  font-size: var(--font-size-xx-large);
   font-family: var(--font-family-alt);
   color: var(--header-color);
 }
@@ -270,7 +268,6 @@ img {
   text-align: center;
   background-color: #0022bca5;
 }
-
 
 .product:hover {
   background-color: #0022bc;
