@@ -56,7 +56,7 @@ function App() {
                 <h3>{product.name}</h3>
                 <p className="original">Originally: ${product.originally}</p>
                 <p className="discount">Discount: ${calculateDiscount(product.originally, product.price)}</p>
-                <p>Price: ${product.price}</p>
+                <p className="price">Price: ${product.price}</p>
                 <button onClick={() => addToCart(product)}>Add to Cart</button>
               </div>
             ))}
