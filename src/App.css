@@ -77,6 +77,17 @@ body {
   width: 100%;
 }
 
+.cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--padding);
+  background-color: #0022bca5;
+  margin: 2rem;
+  border-radius: 5px;
+  border: 2px solid rgb(0, 191, 191);
+}
+
 .itemName, .itemQuantity, .itemPrice {
   font-size: var(--font-size-small);
   font-family: var(--font-family-alt);
@@ -109,6 +120,16 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: var(--font-size-large);
+  padding: 1rem;
+}
+
+header h1 {
+  margin: 0;
+  padding: 0;
+  font-size: var(--font-size-x-large);
+  font-family: var(--font-family-alt);
+  color: var(--header-color);
 }
 
 .App-link {
@@ -240,7 +261,7 @@ img {
 }
 
 .product {
-  border: 2px solid rgba(0, 0, 0, 0.525);
+  border: 1px solid rgb(0, 205, 205);
   padding: var(--padding);
   border-radius: 5px;
   display: flex;
