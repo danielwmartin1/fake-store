@@ -165,6 +165,7 @@ header h1 {
   color: aqua;
   animation: flash-aqua 1s infinite alternate;
   font-size: var(--font-size-small);
+
 }
 
 .original {
@@ -262,9 +263,11 @@ img {
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   background-color: #0022bca5;
+  padding: 4rem 1rem 1rem 1rem;
 }
 
 .product:hover {
@@ -284,19 +287,23 @@ img {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
-  background-color: #0022bca5;
+  width: 80%;
+  background-color: #0055ff;
+  border: 2px solid aqua;
+  border-radius: 5px;
+  padding: 1rem;
+  text-align: center;
 }
 
 button, .cart-item button {
   background-color: var(--button-background-color);
   color: var(--button-color);
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 1rem 2rem;
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
-  margin: 0.5rem auto;
+  margin: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -347,9 +354,10 @@ header, footer {
 }
 
 /* Media Queries for Responsiveness */
+/* Media Queries for Responsiveness */
 @media (max-width: 1024px) {
   .product-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .price, .original, .discount {
@@ -373,6 +381,10 @@ header, footer {
 }
 
 @media (max-width: 768px) {
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+
   .price, .addCart, .original, .discount {
     font-size: var(--font-size-small);
   }
@@ -402,6 +414,10 @@ header, footer {
 }
 
 @media (max-width: 480px) {
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+
   .price, .addCart, .original, .discount, .cart-item {
     font-size: var(--font-size-smaller);
   }
@@ -435,6 +451,10 @@ header, footer {
 }
 
 @media (max-width: 352px) {
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+
   .price, .addCart, .original, .discount {
     font-size: var(--font-size-smallest);
   }
