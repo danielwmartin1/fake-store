@@ -10,7 +10,7 @@ const products = [
   { id: 4, name: 'Camera', originally: 699.99, price: 499.99, image: 'https://i5.walmartimages.com/seo/Canon-EOS-R100-Mirrorless-Camera-24-1-MP-APS-C-4K-29-97-fps-2-5x-optical-zoom-RF-S-18-45mm-F4-5-6-3-IS-STM-lens-Wi-Fi-Bluetooth-black_401378df-14d3-43ee-90ab-e88fe87d2369.8d0f39a684e202d05c2fc0c9d1abd73a.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF' },
 ];
 
-const calculateDiscount = (originally, price) => originally - price;
+const calculateDiscount = (originally, price) => (originally - price).toFixed(2);
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -48,34 +48,34 @@ function App() {
       <Header />
       <main>
         <section className="products">
-          <h2>Products</h2>
+          <div className="headerContainer"><h2 className="productsHeader">Products</h2></div>
           <div className="product-list">
             {products.map((product) => (
               <div key={product.id} className="product">
                 <img className="image" src={product.image} alt={product.name} />
                 <h2 className="productName">{product.name}</h2>
-                <p className="original">Originally: ${product.originally}</p>
+                <p className="original">Originally: ${product.originally.toFixed(2)}</p>
                 <p className="discount">Discount: ${calculateDiscount(product.originally, product.price)}</p>
-                <p className="price">Price: ${product.price}</p>
+                <p className="price">Price: ${product.price.toFixed(2)}</p>
                 <button onClick={() => addToCart(product)}>Add to Cart</button>
               </div>
             ))}
           </div>
         </section>
         <section className="cart">
-          <h2 className="cartHeading">Cart</h2>
+          <div className='headerContainer'><h2 className="cartHeader">Cart</h2></div>
           <div className="cart-list">
             {cart.map((item) => (
             <div key={item.product.id} className="cart-item">
               <h3 className="itemName">{item.product.name}</h3>
               <h4 className="itemQuantity">Quantity: {item.quantity}</h4>
-              <h4 className='itemPrice'>Price: ${item.product.price*item.quantity}</h4>
+              <h4 className='itemPrice'>Price: ${(item.product.price * item.quantity).toFixed(2)}</h4>
               <button onClick={() => removeFromCart(item.product.id)}>Remove</button>
             </div>
             ))}
           </div>
           <h3>Total Items: {getCartTotal()}</h3>
-          <h3>Subtotal: ${cart.reduce((total, item) => total + item.product.price*item.quantity, 0)}</h3>
+          <h3>Subtotal: ${cart.reduce((total, item) => total + (item.product.price * item.quantity), 0).toFixed(2)}</h3>
         </section>
       </main>
       <Footer />

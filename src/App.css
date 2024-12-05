@@ -1,16 +1,54 @@
+:root {
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-family-alt: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  --background-color: #011841a5;
+  --text-color: white;
+  --header-background-color: #282c34;
+  --header-color: white;
+  --header-border-color: aqua;
+  --link-color: #61dafb;
+  --price-color: rgb(0, 255, 0);
+  --original-color: red;
+  --discount-color: yellow;
+  --button-background-color: #282c34;
+  --button-hover-background-color: #61dafb;
+  --button-active-background-color: #115a6e;
+  --button-color: white;
+  --button-hover-color: black;
+  --button-active-color: aqua;
+  --footer-background-color: #0055ff;
+  --footer-color: white;
+  --footer-border-color: aqua;
+  --margin: 1rem;
+  --padding: 1rem;
+  --font-size-xx-large: 3rem;
+  --font-size-x-large: 2.5rem;
+  --font-size-large: 2rem;
+  --font-size: 1.5rem;
+  --font-size-small: 1.25rem;
+  --font-size-smaller: 1rem;
+  --font-size-smallest: 0.75rem;
+  --font-size-xx-smallest: 0.5rem;
+}
+
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #011841a5;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 .App {
   text-align: center;
-  color: white;
+  color: var(--text-color);
 }
 
 .App-logo {
@@ -18,42 +56,58 @@ body {
   pointer-events: none;
 }
 
-.cartHeading {
-  font-size: 1.5rem;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.cartHeader {
+  font-size: var(--font-size);
+  font-family: var(--font-family-alt);
   text-align: center;
-  margin: 1rem 0;
+  margin: var(--margin) 0;
+}
+
+.productsHeader {
+  font-size: var(--font-size-large);
+  font-family: var(--font-family-alt);
+  text-align: center;
+  margin: var(--margin) 0;
+  display: block;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: var(--header-background-color);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--header-color);
   text-align: center;
-  padding: 1rem;
+  padding: var(--padding);
 }
 
 header {
   background-color: #05f;
-  color: white;
+  color: var(--header-color);
   text-align: center;
-  border-bottom: 5px ridge aqua;
+  border-bottom: 5px ridge var(--header-border-color);
   width: 100%;
   position: relative;
   top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
 }
 
 .App-link {
-  color: #61dafb;
+  color: var(--link-color);
 }
 
 .price, .original, .discount {
@@ -61,7 +115,7 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 1rem auto;
+  margin: var(--margin) auto;
   text-align: center;
   padding: 0.25rem;
   width: auto;
@@ -69,17 +123,19 @@ header {
 
 .price {
   font-size: 1.75rem;
-  font-weight: bold;
-  color: rgb(0, 255, 0);
-  animation: flash-green 1s infinite alternate;
+  will-change: transform;
+  transform: scale(1.2);
+  filter: brightness(0.8);
 }
 
 @keyframes flash-green {
   0% {
+    will-change: transform;
     transform: scale(1);
     filter: brightness(1);
   }
   100% {
+    will-change: transform;
     transform: scale(1.2);
     filter: brightness(0.8);
   }
@@ -88,42 +144,36 @@ header {
 .addCart {
   color: aqua;
   animation: flash-aqua 1s infinite alternate;
-  font-size: 1.25rem;
+  font-size: var(--font-size-small);
 }
 
 .original {
-  font-style: italic;
-  color: red;
-  text-decoration: line-through;
-  animation: flash-red 1s infinite alternate;
-  font-size: 1.25rem;
+  will-change: transform;
+  transform: scale(1.2);
+  filter: brightness(0.8);
 }
 
 @keyframes flash-red {
   0% {
-    scale: 1;
+    will-change: transform;
+    transform: scale(1);
     filter: brightness(1);
   }
   100% {
-    scale: 1.2;
+    will-change: transform;
+    transform: scale(1.2);
     filter: brightness(0.8);
   }
 }
-
-.discount {
-  font-style: italic;
-  color: yellow;
-  animation: flash-yellow 1s infinite alternate;
-  font-size: 1.5rem;
-}
-
 @keyframes flash-yellow {
   0% {
-    scale: 1;
+    will-change: transform;
+    transform: scale(1);
     filter: brightness(1);
   }
   100% {
-    scale: 1.2;
+    will-change: transform;
+    transform: scale(1.2);
     filter: brightness(0.8);
   }
 }
@@ -143,7 +193,7 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
+  padding: var(--padding);
 }
 
 .cart-item {
@@ -154,7 +204,7 @@ img {
   width: 100%;
   padding: 0.5rem;
   border-bottom: 1px solid #ccc;
-  gap: 1rem; /* Add this line to create spacing between child elements */
+  gap: 1rem;
 }
 
 .pr {
@@ -162,24 +212,24 @@ img {
 }
 
 .cart-item button {
-  flex: 0; /* The button will not flex and will maintain its size */
+  flex: 0;
 }
 
 .cart-item > * {
-  flex: 1; /* Each child element will flex to fit the available space */
+  flex: 1;
 }
 
 .product-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
-  margin: 1rem;
+  margin: var(--margin);
   justify-content: center;
 }
 
 .product {
   border: 2px solid rgba(0, 0, 0, 0.525);
-  padding: 1rem;
+  padding: var(--padding);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -188,8 +238,8 @@ img {
 }
 
 button {
-  background-color: #282c34;
-  color: white;
+  background-color: var(--button-background-color);
+  color: var(--button-color);
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
@@ -199,36 +249,42 @@ button {
 }
 
 button:hover {
-  background-color: #61dafb;
-  color: black;
+  background-color: var(--button-hover-background-color);
+  color: var(--button-hover-color);
   scale: 1.02;
 }
 
 button:active {
-  background-color: #115a6e;
-  color: aqua;
+  background-color: var(--button-active-background-color);
+  color: var(--button-active-color);
   scale: 1;
 }
 
 p {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 1.5rem;
+  font-family: var(--font-family-alt);
+  font-size: var(--font-size);
   text-align: center;
-  margin: 1rem 0;
+  margin: var(--margin) 0;
 }
 
 footer {
-  background-color: #0055ff;
-  color: white;
-  padding: 1rem;
+  background-color: var(--footer-background-color);
+  color: var(--footer-color);
+  padding: var(--padding);
   text-align: center;
   position: relative;
   bottom: 0;
   width: 100%;
-  border-top: 5px ridge aqua;
+  border-top: 5px ridge var(--footer-border-color);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+footer > p {
+  margin: 0;
+  padding: 0;
+  font-size: var(--font-size-small);
 }
 
 /* Media Queries for Responsiveness */
@@ -248,15 +304,15 @@ footer {
 
 @media (max-width: 768px) {
   .price, .addCart, .original, .discount {
-    font-size: 1.25rem;
+    font-size: var(--font-size-small);
   }
 
   h2 {
-    font-size: 1.25rem;
+    font-size: var(--font-size-small);
   }
 
   p {
-    font-size: 1.25rem;
+    font-size: var(--font-size-small);
   }
 
   button {
@@ -266,15 +322,15 @@ footer {
 
 @media (max-width: 480px) {
   .price, .addCart, .original, .discount {
-    font-size: 1rem;
+    font-size: var(--font-size-smaller);
   }
 
   h2 {
-    font-size: 1rem;
+    font-size: var(--font-size-smaller);
   }
 
   p {
-    font-size: 1rem;
+    font-size: var(--font-size-smaller);
   }
 
   button {
@@ -288,15 +344,15 @@ footer {
 
 @media (max-width: 352px) {
   .price, .addCart, .original, .discount {
-    font-size: 0.75rem;
+    font-size: var(--font-size-smallest);
   }
 
   h2 {
-    font-size: 0.75rem;
+    font-size: var(--font-size-smallest);
   }
 
   p {
-    font-size: 0.75rem;
+    font-size: var(--font-size-smallest);
   }
 
   button {
