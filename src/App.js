@@ -41,6 +41,8 @@ function App() {
     });
   };
 
+  const getCartTotal = () => cart.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <div className="App">
       <Header />
@@ -64,13 +66,16 @@ function App() {
           <h2>Cart</h2>
           <div className="cart-list">
             {cart.map((item) => (
-              <div key={item.product.id} className="cart-item">
-                <h3>{item.product.name}</h3>
-                <h4>Quantity: {item.quantity}</h4>
-                <button onClick={() => removeFromCart(item.product.id)}>Remove</button>
-              </div>
+            <div key={item.product.id} className="cart-item">
+              <h3>{item.product.name}</h3>
+              <h4>Quantity: {item.quantity}</h4>
+              <h4>Price: ${item.product.price*item.quantity}</h4>
+              <button onClick={() => removeFromCart(item.product.id)}>Remove</button>
+            </div>
             ))}
           </div>
+          <h3>Total Items: {getCartTotal()}</h3>
+          <h3>Total Price: ${cart.reduce((total, item) => total + item.product.price*item.quantity, 0)}</h3>
         </section>
       </main>
       <Footer />

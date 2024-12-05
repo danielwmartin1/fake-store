@@ -141,24 +141,34 @@ img {
   margin: 0 auto;
 }
 
-.cartItem {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  margin: 1rem auto;
-  text-align: center;
-  padding: 0.25rem;
-  width: auto;
-}
-
-.cart-list {
+.cart {
   display: flex;
   flex-direction: column;
-  margin: 1rem;
-  justify-content: center;
   align-items: center;
-  text-align: center;
+  padding: 1rem;
+}
+
+.cart-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ccc;
+  gap: 1rem; /* Add this line to create spacing between child elements */
+}
+
+.pr {
+  display: flex;
+}
+
+.cart-item button {
+  flex: 0; /* The button will not flex and will maintain its size */
+}
+
+.cart-item > * {
+  flex: 1; /* Each child element will flex to fit the available space */
 }
 
 .product-list {
