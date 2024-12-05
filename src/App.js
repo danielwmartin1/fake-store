@@ -82,7 +82,7 @@ function App() {
               <h3 className="itemName">{item.product.name}</h3>
               <h4 className="itemQuantity">Quantity: {item.quantity}</h4>
               <h4 className='itemPrice'>Price: ${(item.product.price * item.quantity).toFixed(2)}</h4>
-              <button onClick = {() => setItemCount(item.product.id, item.quantity)}>Edit Quantity</button>
+              <button className="edit-button"onClick = {() => setItemCount(item.product.id, item.quantity)}>Edit Quantity</button>
               <button onClick={() => removeFromCart(item.product.id)}>Remove</button>
             </div>
             ))}

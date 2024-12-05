@@ -219,10 +219,11 @@ img {
 }
 
 .cart {
-  display: flex;
+  display: grid;
+  grid-template-columns: (5, 1fr);
   flex-direction: column;
   align-items: center;
-  padding: var(--padding);
+  margin: var(--margin);
 }
 
 .cart-item {
@@ -303,12 +304,10 @@ button, .cart-item button {
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
-  margin: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  margin: var(--margin);
+  flex: none;
+  font-size: var(--font-size);
+  width: auto;
 }
 
 button:hover {
@@ -370,13 +369,20 @@ header, footer {
 
   .cart-item {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
   .cart-item > * {
     flex: none;
     width: 100%;
-    text-align: left;
+    text-align: center;
+  }
+
+  button, .cart-item button {
+    padding: 0.75rem 1.5rem;
+    font-size: var(--font-size-small);
   }
 }
 
@@ -397,8 +403,9 @@ header, footer {
     font-size: var(--font-size-small);
   }
 
-  button {
-    padding: 0.5rem;
+  button, .cart-item button {
+    padding: 0.5rem 1rem;
+    font-size: var(--font-size-smaller);
   }
 
   .cart-item {
@@ -430,8 +437,9 @@ header, footer {
     font-size: var(--font-size-smaller);
   }
 
-  button {
-    padding: 0.25rem;
+  button, .cart-item button {
+    padding: 0.25rem 0.5rem;
+    font-size: var(--font-size-smallest);
   }
 
   img {
@@ -467,8 +475,13 @@ header, footer {
     font-size: var(--font-size-smallest);
   }
 
-  button {
+  button, .cart-item button {
     padding: 0.25rem;
+  }
+
+  button, .cart-item button {
+    padding: 0.1rem 0.25rem;
+    font-size: var(--font-size-xx-smallest);
   }
 
   img {
@@ -484,5 +497,34 @@ header, footer {
     flex: none;
     width: 100%;
     text-align: left;
+  }
+}
+
+/* Media Queries for Responsive Buttons */
+@media (max-width: 1024px) {
+  button, .cart-item button {
+    padding: 0.75rem 1.5rem;
+    font-size: var(--font-size-small);
+  }
+}
+
+@media (max-width: 768px) {
+  button, .cart-item button {
+    padding: 0.5rem 1rem;
+    font-size: var(--font-size-smaller);
+  }
+}
+
+@media (max-width: 480px) {
+  button, .cart-item button {
+    padding: 0.25rem 0.5rem;
+    font-size: var(--font-size-smallest);
+  }
+}
+
+@media (max-width: 352px) {
+  button, .cart-item button {
+    padding: 0.1rem 0.25rem;
+    font-size: var(--font-size-xx-smallest);
   }
 }
