@@ -3,7 +3,7 @@
   --font-family-alt: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   --background-color: #011841a5;
   --text-color: white;
-  --header-background-color: #282c34;
+  --header-background-color: #0022babb;
   --header-color: white;
   --header-border-color: aqua;
   --link-color: #61dafb;
@@ -109,7 +109,6 @@ body {
 }
 
 header {
-  background-color: #05f;
   color: var(--header-color);
   text-align: center;
   border-bottom: 5px ridge var(--header-border-color);
@@ -315,7 +314,6 @@ p {
 }
 
 footer {
-  background-color: var(--footer-background-color);
   color: var(--footer-color);
   padding: var(--padding);
   text-align: center;
@@ -332,6 +330,10 @@ footer > p {
   margin: 0;
   padding: 0;
   font-size: var(--font-size-small);
+}
+
+header, footer {
+  background-color: #0022bc;
 }
 
 /* Media Queries for Responsiveness */
