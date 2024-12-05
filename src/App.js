@@ -4,10 +4,10 @@ import Footer from './components/Footer.js';
 
 // Fake product data
 const products = [
-  { id: 1, name: 'Laptop', originally: 1499, price: 999, image: 'https://m.media-amazon.com/images/I/61XtQfb-sRL.__AC_SX300_SY300_QL70_FMwebp_.jpg' },
-  { id: 2, name: 'Phone', originally: 899, price: 699, image: 'https://t-mobile.scene7.com/is/image/Tmusprod/Apple-iPhone-15-Plus-Pink-frontimage' },
-  { id: 3, name: 'Headphones', originally: 349, price: 199, image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQTQ3?wid=1144&hei=1144&fmt=jpeg&qlt=95&.v=1687660671363' },
-  { id: 4, name: 'Camera', originally: 699, price: 499, image: 'https://i5.walmartimages.com/seo/Canon-EOS-R100-Mirrorless-Camera-24-1-MP-APS-C-4K-29-97-fps-2-5x-optical-zoom-RF-S-18-45mm-F4-5-6-3-IS-STM-lens-Wi-Fi-Bluetooth-black_401378df-14d3-43ee-90ab-e88fe87d2369.8d0f39a684e202d05c2fc0c9d1abd73a.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF' },
+  { id: 1, name: 'Laptop', originally: 1499.99, price: 999.99, image: 'https://m.media-amazon.com/images/I/61XtQfb-sRL.__AC_SX300_SY300_QL70_FMwebp_.jpg' },
+  { id: 2, name: 'Phone', originally: 899.99, price: 699.99, image: 'https://t-mobile.scene7.com/is/image/Tmusprod/Apple-iPhone-15-Plus-Pink-frontimage' },
+  { id: 3, name: 'Headphones', originally: 349.99, price: 199.99, image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQTQ3?wid=1144&hei=1144&fmt=jpeg&qlt=95&.v=1687660671363' },
+  { id: 4, name: 'Camera', originally: 699.99, price: 499.99, image: 'https://i5.walmartimages.com/seo/Canon-EOS-R100-Mirrorless-Camera-24-1-MP-APS-C-4K-29-97-fps-2-5x-optical-zoom-RF-S-18-45mm-F4-5-6-3-IS-STM-lens-Wi-Fi-Bluetooth-black_401378df-14d3-43ee-90ab-e88fe87d2369.8d0f39a684e202d05c2fc0c9d1abd73a.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF' },
 ];
 
 const calculateDiscount = (originally, price) => originally - price;
@@ -53,7 +53,7 @@ function App() {
             {products.map((product) => (
               <div key={product.id} className="product">
                 <img className="image" src={product.image} alt={product.name} />
-                <h3>{product.name}</h3>
+                <h3 className="productName">{product.name}</h3>
                 <p className="original">Originally: ${product.originally}</p>
                 <p className="discount">Discount: ${calculateDiscount(product.originally, product.price)}</p>
                 <p className="price">Price: ${product.price}</p>
@@ -67,15 +67,15 @@ function App() {
           <div className="cart-list">
             {cart.map((item) => (
             <div key={item.product.id} className="cart-item">
-              <h3>{item.product.name}</h3>
-              <h4>Quantity: {item.quantity}</h4>
-              <h4>Price: ${item.product.price*item.quantity}</h4>
+              <h3 className="itemName">{item.product.name}</h3>
+              <h4 className="itemQuantity">Quantity: {item.quantity}</h4>
+              <h4 className='itemPrice'>Price: ${item.product.price*item.quantity}</h4>
               <button onClick={() => removeFromCart(item.product.id)}>Remove</button>
             </div>
             ))}
           </div>
           <h3>Total Items: {getCartTotal()}</h3>
-          <h3>Total Price: ${cart.reduce((total, item) => total + item.product.price*item.quantity, 0)}</h3>
+          <h3>Subtotal: ${cart.reduce((total, item) => total + item.product.price*item.quantity, 0)}</h3>
         </section>
       </main>
       <Footer />
