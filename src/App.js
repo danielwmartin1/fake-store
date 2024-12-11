@@ -64,7 +64,7 @@ function App() {
             {products.map((product) => (
               <div key={product.id} className="product">
                 <a className="product-link" href={product.link} target="_blank" rel="noopener noreferrer">
-                  <img className="image" src={product.image} alt={product.name} />
+                  <img className="product-image" src={product.image} alt={product.name} />
                   <p className="link original">Originally: ${product.originally.toFixed(2)}</p>
                   <p className="link discount">Discount: ${calculateDiscount(product.originally, product.price)}</p>
                   <p className="link price">Price: ${product.price.toFixed(2)}</p>
