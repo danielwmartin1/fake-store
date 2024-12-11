@@ -87,12 +87,31 @@ function App() {
             </div>
             ))}
           </div>
-          <section>
-            <h3>Total Items: {getCartTotal()}</h3>
-            <h3>Subtotal: ${cart.reduce((total, item) => total + (item.product.price * item.quantity), 0).toFixed(2)}</h3>
-            <h3>Tax: ${(cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) * 0.07).toFixed(2)}</h3>
-            {cart.length > 0 && <h3>Shipping: $5.00</h3>}
-            <h3>Total: ${(cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) * 1.07 + (cart.length > 0 ? 5 : 0)).toFixed(2)}</h3>
+          <section className='cartTotal'>
+            <div className="cart-summary">
+              <div className="summary-item">
+                <h3>Total Items:</h3>
+                <p>{getCartTotal()}</p>
+              </div>
+              <div className="summary-item">
+                <h3>Subtotal:</h3>
+                <p>${cart.reduce((total, item) => total + (item.product.price * item.quantity), 0).toFixed(2)}</p>
+              </div>
+              <div className="summary-item">
+                <h3>Tax:</h3>
+                <p>${(cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) * 0.07).toFixed(2)}</p>
+              </div>
+              {cart.length > 0 && (
+                <div className="summary-item">
+                <h3>Shipping:</h3>
+                <p>$5.00</p>
+                </div>
+              )}
+              <div className="summary-item">
+                <h3>Total:</h3>
+                <p>${(cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) * 1.07 + (cart.length > 0 ? 5 : 0)).toFixed(2)}</p>
+              </div>
+            </div>
           </section>
         </section>
       </main>

@@ -221,20 +221,17 @@ img {
 .cart {
   display: grid;
   grid-template-columns: (5, 1fr);
-  flex-direction: column;
   align-items: center;
   margin: var(--margin);
 }
 
 .cart-item {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Adjust the number of columns as needed */
+  gap: 1rem; /* Optional: Adds space between grid items */
   align-items: center;
-  width: 100%;
   padding: 0.5rem;
   border-bottom: 1px solid #ccc;
-  gap: 1rem;
   text-align: center;
 }
 
@@ -322,6 +319,13 @@ button:active {
   scale: 1;
 }
 
+.cartTotal {
+  font-size: var(--font-size-small);
+  font-family: var(--font-family-alt);
+  text-align: center;
+  color: aqua;
+}
+
 p {
   font-family: var(--font-family-alt);
   font-size: var(--font-size);
@@ -352,6 +356,13 @@ header, footer {
   background-color: #0022bca5;
 }
 
+.summary-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+}
+
 /* Media Queries for Responsiveness */
 /* Media Queries for Responsiveness */
 @media (max-width: 1024px) {
@@ -368,16 +379,7 @@ header, footer {
   }
 
   .cart-item {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .cart-item > * {
-    flex: none;
-    width: 100%;
-    text-align: center;
+    grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
   }
 
   button, .cart-item button {
@@ -403,6 +405,10 @@ header, footer {
     font-size: var(--font-size-small);
   }
 
+  .cart-item {
+    grid-template-columns: 1fr; /* Single column for small screens */
+  }
+
   button, .cart-item button {
     padding: 0.5rem 1rem;
     font-size: var(--font-size-smaller);
@@ -410,13 +416,15 @@ header, footer {
 
   .cart-item {
     flex-direction: column;
-    align-items: flex-start;
   }
 
   .cart-item > * {
     flex: none;
     width: 100%;
-    text-align: left;
+  }
+
+  .cart-summary {
+    grid-template-columns: 1fr; /* Single column layout for smaller screens */
   }
 }
 
@@ -448,13 +456,11 @@ header, footer {
 
   .cart-item {
     flex-direction: column;
-    align-items: flex-start;
   }
 
   .cart-item > * {
     flex: none;
     width: 100%;
-    text-align: left;
   }
 }
 
@@ -527,4 +533,9 @@ header, footer {
     padding: 0.1rem 0.25rem;
     font-size: var(--font-size-xx-smallest);
   }
+}
+
+.cart-summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
