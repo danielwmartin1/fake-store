@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
+// import Cookies from 'js-cookie'; // You need to install js-cookie library
 
 // Fake product data
 const products = [
@@ -13,7 +14,18 @@ const products = [
 const calculateDiscount = (originally, price) => (originally - price).toFixed(2);
 
 function App() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem('cart');
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
+  // Load cart state from localStorage when the app initializes
+  useEffect(() => {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
+    }
+  }, []);
   
   const setItemCount = (id) => {
     const newQuantity = prompt("Enter new quantity: ");
@@ -24,7 +36,7 @@ function App() {
         );
       });
     }
-  }
+  };
 
   const addToCart = (product) => {
     setCart((prevCart) => {
@@ -53,6 +65,11 @@ function App() {
   };
 
   const getCartTotal = () => cart.reduce((total, item) => total + item.quantity, 0);
+
+  // Save cart state to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   return (
     <div className="App">
@@ -91,27 +108,27 @@ function App() {
           <section className='cartTotal'>
             <div className="cart-summary">
               <div className="summary-item">
-                <h3>Total Items:</h3>
+                <h3>Total Items: </h3>
                 <p>{getCartTotal()}</p>
               </div>
               <div className="summary-item">
-                <h3>Subtotal:</h3>
+                <h3>Subtotal: </h3>
                 <p>${cart.reduce((total, item) => total + (item.product.price * item.quantity), 0).toFixed(2)}</p>
               </div>
               <div className="summary-item">
-                <h3>Tax:</h3>
+                <h3>Tax: </h3>
                 <p>${(cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) * 0.07).toFixed(2)}</p>
               </div>
               {cart.length > 0 && (
                 <div className="summary-item">
-                <h3>Shipping:</h3>
-                <p>$5.00</p>
+                <h3>Shipping: </h3>
+                <p>${(cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) <= 0 || cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) > 999.99 ? '0.00' : '5.00')}</p>
                 </div>
               )}
               <div className="summary-item">
-                <h3>Total:</h3>
-                <p>${(cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) * 1.07 + (cart.length > 0 ? 5 : 0)).toFixed(2)}</p>
-              </div>
+                <h3>Grand Total: </h3>
+                <p>${(cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) * 1.07 + (cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) <= 0 || cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) > 999.99 ? 0 : 5)).toFixed(2)}</p>
+                </div>
             </div>
           </section>
         </section>
