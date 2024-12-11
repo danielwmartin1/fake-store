@@ -226,9 +226,7 @@ img {
 }
 
 .cart-item {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Adjust the number of columns as needed */
-  gap: 1rem; /* Optional: Adds space between grid items */
+  display: flex;
   align-items: center;
   padding: 0.5rem;
   border-bottom: 1px solid #ccc;
