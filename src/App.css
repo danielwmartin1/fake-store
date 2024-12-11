@@ -89,7 +89,7 @@ body {
 .itemName, .itemQuantity, .itemPrice {
   font-size: var(--font-size-small);
   font-family: var(--font-family-alt);
-  text-align: left;
+  text-align: center;
   margin: var(--margin) 0;
   display: block;
 }
@@ -375,6 +375,7 @@ header, footer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
+
 
 /* Media Queries for Responsiveness */
 @media (max-width: 1200px) {
