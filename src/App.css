@@ -374,7 +374,7 @@ h3 {
   font-size: var(--font-size);
   font-family: var(--font-family-alt);
   text-align: center;
-  margin: 1rem;
+  margin: 0.5rem;
 }
 
 .cart-summary {
