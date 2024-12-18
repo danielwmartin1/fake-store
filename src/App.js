@@ -29,12 +29,14 @@ function App() {
   
   const setItemCount = (id) => {
     const newQuantity = prompt("Enter new quantity: ");
-    if (newQuantity !== null) {
+    if (newQuantity !== null && Number.isInteger(Number(newQuantity)) && Number(newQuantity) > 0) {
       setCart((prevCart) => {
         return prevCart.map((item) =>
           item.product.id === id ? { ...item, quantity: parseInt(newQuantity) } : item
         );
       });
+    } else {
+      alert("Please enter a valid whole number greater than 0.");
     }
   };
 
@@ -100,7 +102,7 @@ function App() {
               <h3 className="itemName">{item.product.name}</h3>
               <h4 className="itemQuantity">Quantity: {item.quantity}</h4>
               <h4 className='itemPrice'>Price: ${(item.product.price * item.quantity).toFixed(2)}</h4>
-              <button className="edit-button"onClick = {() => setItemCount(item.product.id, item.quantity)}>Edit Quantity</button>
+              <button className="edit-button" onClick={() => setItemCount(item.product.id)}>Edit Quantity</button>
               <button onClick={() => removeFromCart(item.product.id)}>Remove</button>
             </div>
             ))}
@@ -112,22 +114,22 @@ function App() {
                 <p>{getCartTotal()}</p>
               </div>
               <div className="summary-item">
-                <h3>Subtotal: </h3>
-                <p>${cart.reduce((total, item) => total + (item.product.price * item.quantity), 0).toFixed(2)}</p>
+                <h3 className="summary-header">Subtotal: </h3>
+                <p className="summary">${cart.reduce((total, item) => total + (item.product.price * item.quantity), 0).toFixed(2)}</p>
               </div>
               <div className="summary-item">
-                <h3>Tax: </h3>
-                <p>${(cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) * 0.07).toFixed(2)}</p>
+                <h3 className="summary-header">Tax: </h3>
+                <p className="summary">${(cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) * 0.07).toFixed(2)}</p>
               </div>
               {cart.length > 0 && (
                 <div className="summary-item">
-                <h3>Shipping: </h3>
-                <p>${(cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) <= 0 || cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) > 999.99 ? '0.00' : '5.00')}</p>
+                <h3 className="summary-header">Shipping: </h3>
+                <p className="summary">${(cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) <= 0 || cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) > 999.99 ? '0.00' : '5.00')}</p>
                 </div>
               )}
               <div className="summary-item">
-                <h3>Grand Total: </h3>
-                <p>${(cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) * 1.07 + (cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) <= 0 || cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) > 999.99 ? 0 : 5)).toFixed(2)}</p>
+                <h3 className="summary-header">Grand Total: </h3>
+                <p className="summary">${(cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) * 1.07 + (cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) <= 0 || cart.reduce((total, item) => total + (item.product.price * item.quantity), 0) > 999.99 ? 0 : 5)).toFixed(2)}</p>
                 </div>
             </div>
           </section>
